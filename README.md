@@ -32,6 +32,35 @@ $ ./book
 If the last command doesn't work, try `php book` or check `book` script
 permissions.
 
+
+
+## Execute with Docker
+
+First create the project:
+
+```bash
+docker run -u $(id -u):$(id -g) --rm -it -v $(pwd):/app composer composer create-project easybook/easybook easybook
+
+```
+
+Then run it:
+
+```bash
+docker run -u $(id -u):$(id -g) --rm -it -v $(pwd):/usr/src/myapp -w /usr/src/myapp php:7.4-cli php book
+```
+
+_You must use PHP version 7.4 as the project is not ready for version 8._
+
+
+
+>  [!TIP]
+> 
+> On Linux you can easily create an alias for the execution with `docker run -u $(id -u):$(id -g) --rm -it -v $(pwd):/usr/src/myapp -w /usr/src/myapp php:7.4-cli php book` and then invoke it with `php book`.
+
+
+
+
+
 Documentation
 -------------
 
